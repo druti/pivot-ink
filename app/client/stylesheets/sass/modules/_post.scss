@@ -1,0 +1,159 @@
+.post-item {
+  @extend %content-panel;
+
+  position: relative;
+  opacity: 1;
+
+  &:before, &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  .invisible {
+    opacity: 0;
+  }
+  .instant {
+    transition: none;
+  }
+  .animate {
+    transition: all 300ms 0ms ease-in;
+  }
+  .upvote {
+    display: block;
+    margin: 7px 12px 0 0;
+    float: left;
+  }
+  .post-item__content {
+    color: #666;
+    float: left;
+    font-size: 14px;
+
+    h3 {
+      display: inline-block;
+      margin: 0;
+      line-height: 1.4;
+      font-size: 18px;
+
+      a {
+        display: inline-block;
+        margin-right: 2px;
+      }
+
+    }
+
+    span {
+      color: #aaa;
+      display: block;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 3px 0 5px 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+
+.post-page {
+  color: #333;
+  @extend %page;
+
+  .post-page__info {
+    .columns {
+      padding-right: 0;
+    }
+
+    .title {
+      margin: 0;
+    }
+
+    .authors {
+      h4 {
+        margin: 0;
+      }
+
+      background: none;
+      margin-bottom: 2rem;
+
+      .author {
+        display: inline-block;
+        font-size: inherit;
+        padding: 10px;
+      }
+    }
+  }
+
+  .post-page__content {
+    p {
+      margin: 0;
+    }
+
+    .branch-container .text-node {
+      cursor: pointer;
+    }
+  }
+
+  .comments-section {
+    padding-top: 4rem;
+
+    .comments li {
+      margin-bottom: 10px;
+      padding-right: 5px;
+      box-shadow: 2px 0 0 0 #eee;
+    }
+  }
+}
+
+.posts-list {
+  @extend %page;
+}
+
+.access-denied {
+  @extend %page;
+  text-align: center;
+}
+
+.post-submit {
+  @extend %page;
+
+  input[type='text'] {
+    border: 1px solid #000;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.post-edit {
+  @extend %page;
+}
+
+.page {
+  @extend %page;
+}
+
+.loading {
+  @extend %page;
+}
+
+%page {
+  padding-top: em(48px);
+  padding-bottom: 1em;
+}
+
+.roller {
+  position: relative;
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.row-left {
+  @extend .row;
+  margin-right: 0;
+}

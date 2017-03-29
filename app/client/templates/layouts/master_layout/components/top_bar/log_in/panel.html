@@ -1,0 +1,21 @@
+<template name="LogInPanel">
+  <div class="log-in-panel top-bar__panel">
+    <div class="row">
+      <form class="accounts__form small-centered medium-6 columns">
+        <div class="accounts__form--fields">
+          <input type="text" name="user" placeholder="Email or username" class='{{errorClass "user"}}' />
+          <input type="password" name="password" placeholder="Password" class='{{errorClass "password"}}' />
+        </div>
+        <div class='help-block'>
+          <ul class='{{errorClass "user"}} {{errorClass "password"}} {{errorClass "error"}}'>
+            <li class='{{errorClass "user"}}'>{{errorMessage 'user'}}</li>
+            <li class='{{errorClass "password"}}'>{{errorMessage 'password'}}</li>
+            <li class='{{errorClass "error"}}'>{{errorMessage 'error'}}</li>
+          </ul>
+        </div>
+        <input type="submit" value="Log in" />
+        <!--<a href="{{pathFor 'ForgotPassword'}}" class="forgot-p">Forgot your password?</a>-->
+      </form>
+    </div>
+  </div> <!-- close sign-in -->
+</template>

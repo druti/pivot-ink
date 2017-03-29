@@ -1,0 +1,34 @@
+#post-editor {
+}
+
+.ql-snow {
+  background: white;
+  border: 1px solid;
+  border-bottom: none;
+
+  .ql-format-group {
+    margin: 0 !important;
+
+    .ql-align {
+      width: 114px;
+
+      .ql-picker-options {
+        border: none !important;
+        box-shadow: rgba(0,0,0,0.2) 0 2px 8px, 0 0 0 1px #ccc inset !important;
+        padding: 0 0 0 28px !important;
+        top: 1px;
+
+        .ql-selected {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+.post-submit {
+  input[type='submit'] {
+    border: 1px solid black;
+    border-top: none;
+  }
+}

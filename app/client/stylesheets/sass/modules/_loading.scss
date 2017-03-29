@@ -1,0 +1,15 @@
+.loading {
+  display: block;
+  height: 50px;
+  position: relative;
+}
+
+.post-page__content {
+  .loading {
+    display: none;
+    padding-top: 0;
+    margin-top: 24px; // line break height
+    margin-bottom: 1000px;
+  }
+}
+

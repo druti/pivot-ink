@@ -1,0 +1,36 @@
+.top-bar-dropdowns {
+  .logo-wrapper {
+    display: none;
+    position: relative;
+
+    .main-solid {
+      background: none;
+    }
+  }
+}
+.content-wrapper {
+  .logo-wrapper {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: $top-bar-height-px;
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+.logo {
+  background: black;
+  border-radius: 0 0 150px 150px;
+  border-top: 4px solid white;
+  color: white;
+  font-size: $top-bar-height-px;
+  font-weight: bold;
+  height: 75px;
+  line-height: 75px;
+  margin: 0 auto;
+  text-align: center;
+  width: 150px;
+}

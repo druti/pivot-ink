@@ -1,0 +1,11 @@
+<template name='Notifications'>
+  <ul class='notifications menu-list text-center'>
+    {{#if notificationCount}}
+      {{#each notifications}}
+        {{> NotificationItem}}
+      {{/each}}
+    {{else}}
+      <li><a href='#'>No new notifications</a></li>
+    {{/if}}
+  </ul>
+</template>

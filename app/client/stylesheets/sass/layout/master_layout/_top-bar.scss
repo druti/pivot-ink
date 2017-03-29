@@ -1,0 +1,368 @@
+.top-bar {
+  background-color: #000;
+  box-shadow: 0 -2px 0 0 #fff inset, 0 4px 4px 0 #fff;
+  font-family: $font-family--layout;
+  height: $top-bar-height;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $top-bar__z-index;
+  nav {
+    height: 100%;
+    font-size: 0;
+    .roller {
+      height: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    a {
+      &.top-bar__notif-count {
+        padding-left: 5px;
+        font-family: serif;
+
+        &.top-bar__notif-count--active {
+          text-align: center;
+        }
+      }
+      &.top-bar__log-out {
+        border: none;
+      }
+
+      color: map-get($greyShades, xx-light);
+      display: inline-block;
+      font-size: 16px;
+      line-height: $top-bar-height;
+      overflow: hidden;
+      padding-left: em-nav(10px);
+      padding-right: em-nav(10px);
+      position: relative;
+      text-decoration: none;
+
+// media queries for top bar anchor width TODO maybe
+
+      %expand {
+        background: black;
+        display: block;
+        height: 0;
+        overflow: hidden;
+        padding-top: $top-bar-height-px - 3;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: em-nav(25px);
+      }
+
+      .expand-down {
+        @extend %expand;
+        border-right: 1px solid #fff;
+        border-bottom: none;
+
+        @include p-el(before, 0, 0) {
+          border-bottom: 0;
+          border-left: em-nav(4px) solid transparent;
+          border-right: em-nav(4px) solid transparent;
+          border-top: em-nav(4px) solid map-get($greyShades, xx-light);
+          display: inline-block;
+          left: 50%;
+          margin: em-nav(-3px) 0 0 em-nav(-4px);
+          top: 53%;
+        }
+      }
+      .expand-right {
+        @extend %expand;
+        border-right: 1px solid #fff;
+        border-bottom: none;
+
+        @include p-el(before, 0, 0) {
+          border-bottom: em-nav(4px) solid transparent;
+          border-left: em-nav(4px) solid map-get($greyShades, xx-light);
+          border-right: 0;
+          border-top: em-nav(4px) solid transparent;
+          display: inline-block;
+          left: 70%;
+          margin: em-nav(-4px) 0 0 em-nav(-4px);
+          top: 50%;
+        }
+      }
+
+      .contract {
+        @include p-el(before, 0, 0) {
+          border-bottom: em-nav(4px) solid #0b0b0b;
+          border-left: em-nav(4px) solid transparent;
+          border-right: em-nav(4px) solid transparent;
+          border-top: 0;
+          display: inline-block;
+          left: 50%;
+          margin: em-nav(-3px) 0 0 em-nav(-4px);
+          top: 50%;
+        }
+      }
+      .contract-left {
+        @include p-el(before, 0, 0) {
+          border-bottom: em-nav(4px) solid transparent;
+          border-left: 0;
+          border-right: em-nav(4px) solid #fff;
+          border-top: em-nav(4px) solid transparent;
+          display: inline-block;
+          left: 60%;
+          margin: em-nav(-4px) 0 0 em-nav(-4px);
+          top: 50%;
+        }
+      }
+
+      &.top-bar__action {
+        padding-right: em-nav(29px); // top-bar anchor padding right divided by 2 + expand down width
+
+        .expand-right, .expand-down {
+          box-shadow: -2px 0px 2px 0px #000, 1px 0px 0px 0px #000;
+        }
+      }
+
+      &.top-bar__anchor {
+        text-align: center;
+        box-shadow: -1px 0px 0px 0px #fff;
+      }
+
+      &.top-bar__menu {
+      }
+
+      &.top-bar__menu--active,
+      &.top-bar__log-in--active,
+      &.top-bar__sign-up--active,
+      &.top-bar__user--active,
+      &.top-bar__notif-count--active,
+      &.top-bar__notifications--active,
+      &.top-bar__opener--active,
+      &.top-bar__action--active,
+      &.top-bar__anchor--active {
+        background-color: $white;
+        box-shadow: 0 -2px 0 0 #fff inset, 0 -3px 0 0 #000 inset, 1px 0 0 0 #000 inset;
+        color: map-get($blackShades, base);
+
+        .contract, .contract-left {
+          background: white;
+          box-shadow: none;
+        }
+        .contract {
+          box-shadow: -1px 0 0 0 #000;
+          border-bottom: 1px solid #fff;
+          right: 0;
+        }
+        .contract-left {
+          border-left: 1px solid #000;
+          right: 1px;
+          @include p-el(before, 0, 0) {
+            border-bottom: em-nav(4px) solid transparent;
+            border-left: 0;
+            border-right: em-nav(4px) solid #0b0b0b;
+            border-top: em-nav(4px) solid transparent;
+            display: inline-block;
+            left: 60%;
+            margin: em-nav(-4px) 0 0 em-nav(-4px);
+            top: 50%;
+          }
+        }
+      }
+
+      &.top-bar__notif-count--active {
+        box-shadow: 0 -2px 0 0 #fff inset, 0 -3px 0 0 #000 inset;
+      }
+
+      &.top-bar__opener--active {
+        .contract-left {
+          border: none;
+          box-shadow: -2px 0px 2px 0px #fff, 1px 0px 0px 0px #fff;
+          padding-top: em-nav(24px);
+          top: 5px;
+        }
+      }
+
+      &.top-bar__menu--active {
+        box-shadow: 0 -2px 0 0 #fff inset,
+                    0 -3px 0 0 #000 inset,
+                    1px 0px 0 0 #fff inset,
+                    2px 0px 0px 0px #000 inset;
+      }
+
+      &.top-bar__notif-count--active {
+        border-right: 1px solid #fff;
+      }
+    }
+  }
+}
+
+
+.top-bar-dropdowns {
+  left: 0;
+  //height: auto;
+  height: 0;
+  position: fixed;
+  top: $top-bar-height;
+  //overflow: hidden;
+  overflow: visible;
+  width: 100%;
+  z-index: $top-bar-hangers__z-index;
+}
+
+.top-bar__panel {
+  color: map-get($blackShades, base);
+  background-color: black;
+  box-shadow: 0 -2px 0 0 #fff inset;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.log-in-panel,
+.sign-up-panel,
+.user-panel {
+  .accounts__form {
+    font-family: $font-family--layout;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    .accounts__form--fields {
+      border: none;
+      overflow: hidden
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      background-color: map-get($greyShades, dark);
+      border: none;
+      border-radius: 0;
+      box-shadow: none !important;
+      font-size: $nav__font-size;
+      height: em-nav(45px);
+      line-height: em-nav(24px);
+      padding: 0 em-nav(10px);
+      margin: 0;
+      width: 100%;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border: 1px solid #000 !important;
+      border-width: 1px 1em !important;
+    }
+    input[type="password"] {
+      height: em-nav(44px);
+    }
+    input[type="checkbox"] {
+      margin: 0;
+      margin-right: em-nav(6px);
+      position: relative;
+      top: em-nav(1px);
+    }
+    input[type="submit"] {
+      color: map-get($greyShades, xx-light);
+      background-color: map-get($ui-colors, default);
+      border: none;
+      font-size: em-nav(24px);
+      height: em-nav(44px, 24px);
+      line-height: em-nav(24px);
+      text-transform: initial;
+      margin-bottom: em-nav(12px);
+      width: 100%;
+    }
+    p {
+      color: map-get($greyShades, light);
+      margin: 0;
+      a {
+        color: #fff;
+      }
+    }
+    .tou-a {
+      margin: 0;
+    }
+    .forgot-p {
+      color: map-get($greyShades, xx-light);
+      display: block;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+}
+
+.log-in-panel {
+  .accounts__form {
+    input[type='submit'] {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+.user-panel {
+  .inner {
+    position: relative;
+    height: auto;
+  }
+
+  .main.menu {
+    background: #fff;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding-top: 9px;
+    padding-bottom: 8px;
+
+    a {
+      color: #000;
+    }
+  }
+
+  h3 {
+    margin-bottom: 14px;
+  }
+
+  .content {
+    ul {
+      li {
+        & > a {
+          color: #fff;
+          padding-left: 0;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .menu-list {
+    //background: #2b2c2e;
+    & > li {
+      & > a {
+        color: #fff;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.notifications-panel {
+  background: #fff;
+  .notifications {
+    border-bottom: 1px solid #000;
+    li {
+      a {
+        color: #000
+      }
+    }
+  }
+}
+
+.hanger {
+  box-shadow: 0 -2px 0 0 $white inset,
+              0 4px 0 0 map-get($blackShades, dark);
+}
+
+.separator {
+  border-bottom: 2px solid $white;
+}

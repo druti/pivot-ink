@@ -1,0 +1,97 @@
+<template name='PostPage'>
+  {{#if Template.subscriptionsReady}}
+    {{#with rootPost}}
+    <div class='post-page'>
+      <!-- info open -->
+      {{#if ownsPost}}
+        {{#if noDependents}}
+          <div class='row'>
+            <div class='small-3 medium-2 end columns'>
+                  <!-- edit post button
+                  <a href='{{pathFor "PostEdit" r_id=this._id p_id=pathId g_id=this.groupId}}'
+                    class='button tiny expanded'>Edit</a>
+                  -->
+            </div>
+          </div>
+        {{/if}}
+      {{/if}}
+
+      <div class='post-page__info'>
+        <div class='row'>
+          <div class='columns'>
+            <div class='roller'>
+              <h1 class='title'>
+                {{title}}
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='columns'>
+            <div class='authors roller'>
+              <h4>
+                by
+                {{#each authors}}
+                <a class='author' href="#">{{this}}</a>
+                {{/each}}
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- info close -->
+
+      <!-- content open -->
+      <div class='row'>
+        <div class='medium-centered medium-9 large-6 columns'>
+          <div class='post-page__content'>
+            <div>
+              <!-- immutable first paragraph -->
+              {{{content}}}
+            </div>
+
+            <!-- create stack of branch containers -->
+            {{#each branchContainerStack}}
+              {{> BranchContainer}}
+            {{/each}}
+
+            {{> LoadingBlock}}
+
+            <!-- continuationPostSubmit link -->
+            <div class='continue-cta text-center'>
+              <a href='{{pathFor "ContinuationPostSubmit"
+                        r_id=this._id p_id=pathId parent_id=continuationParentId}}'
+                        class='success button'>
+                Create Continuation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content close -->
+
+      <!-- comments open -->
+      <div class='comments-section'>
+        <div class='row'>
+          <div class='medium-centered medium-9 large-6 columns'>
+            <ul class='comments'>
+              {{#each comments}}
+                {{> CommentItem}}
+              {{/each}}
+            </ul>
+            {{#if currentUser}}
+              {{> CommentSubmit}}
+            {{else}}
+            <p>Please <a class='log-in' href='#'>log in</a> to leave a comment.</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <!-- comments close -->
+    </div>
+    {{/with}}
+  {{else}}
+    {{> LoadingFull}}
+  {{/if}}
+</template>

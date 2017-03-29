@@ -1,0 +1,57 @@
+.log-in-panel, .sign-up-panel {
+  .help-block {
+    background: map-get($ui-colors, error);
+    text-align: center;
+
+    ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+
+      &.has-error {
+        display: block;
+        padding: 5px;
+      }
+
+      li {
+        display: none;
+
+        &.has-error {
+          color: #000;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.post-submit, .post-edit {
+  .has-error {
+    color: map-get($ui-colors, error);
+
+    label {
+      color: map-get($ui-colors, error);
+
+      input, textarea {
+        border: 1px solid map-get($ui-colors, error);
+        margin-bottom: em(8px);
+      }
+    }
+
+
+    .help-block {
+      padding-bottom: .75em;
+      padding-left: .5em;
+      border-left: 1px solid;
+      border-right: 1px solid;
+    }
+  }
+  form {
+    .has-error {
+      .help-block {
+        padding-left: 0;
+        border: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<template name='PostEdit'>
+  {{#if Template.subscriptionsReady}}
+    <div class='post-edit'>
+      {{#if rootIncluded}}
+        {{#with rootPost}}
+        <form>
+          <div class='row'>
+            <div class='medium-6 columns'>
+              <div class='{{errorClass "title"}}'>
+                <label>
+                  Title
+                  <input type='text' name='title' value={{this.title}} />
+                </label>
+                <div class='help-block'>{{errorMessage 'title'}}</div>
+              </div>
+            </div>
+          </div>
+        </form>
+        {{/with}}
+      {{/if}}
+
+      <div class='row'>
+        <div class='columns'>
+          <div class='{{errorClass "content"}}'>
+            {{> PostEditor groupIdData}}
+            <div class='help-block'>{{errorMessage 'content'}}</div>
+          </div>
+        </div>
+      </div>
+
+      <form>
+        <div class='row'>
+          <div class='columns'>
+            <input type='submit' value='Save' class='button expanded' />
+            <hr />
+          </div>
+        </div>
+      </form>
+
+      <!---
+      <div class='row'>
+        <div class='small-6 small-offset-6 columns'>
+          <a href='#' class='button alert expanded delete'>Delete Post</a>
+        </div>
+      </div>
+      -->
+    </div>
+  {{else}}
+    {{> LoadingFull}}
+  {{/if}}
+</template>

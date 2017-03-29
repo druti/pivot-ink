@@ -1,0 +1,19 @@
+<template name='MasterLayout'>
+  {{> TopBar}}
+
+  <div class='top-bar-dropdowns'>
+    {{> Template.dynamic template=openTopBarPanel.name data=openTopBarPanel.data}}
+
+    {{> Callouts}}
+
+    {{> Logo}}
+  </div>
+
+  {{> Drawer}}
+
+  <div class='content-wrapper'>
+    <div class='main-solid'></div>
+    {{> Logo}}
+    {{>Template.dynamic template=content}}
+  </div>
+</template>

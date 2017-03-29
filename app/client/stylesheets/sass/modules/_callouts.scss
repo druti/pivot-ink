@@ -1,0 +1,17 @@
+.callouts {
+  .callout {
+    border: none;
+    border-bottom: 1px solid white;
+    margin: 0;
+    padding-right: 2.5em;
+
+    &.info {
+      background: #eee;
+    }
+
+    &.black {
+      background: #000;
+      color: #fff;
+    }
+  }
+}

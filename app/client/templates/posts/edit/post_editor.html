@@ -1,0 +1,28 @@
+<template name="PostEditor">
+  <div>
+    <label for='post-editor'>Body</label>
+    <div id="post-editor">
+      {{#if this.groupId}}
+        <div>Loading..</div>
+      {{/if}}
+    </div>
+    <div id="post-editor-toolbar" class="toolbar ql-toolbar ql-snow">
+      <span class="ql-format-group">
+        <span title="Bold" class="ql-format-button ql-bold"></span>
+        <span class="ql-format-separator"></span>
+        <span title="Italic" class="ql-format-button ql-italic"></span>
+        <span class="ql-format-separator"></span>
+        <span title="Underline" class="ql-format-button ql-underline"></span>
+        <span class="ql-format-separator"></span>
+        <span title="Strikethrough" class="ql-format-button ql-strike"></span>
+        <span class="ql-format-separator"></span>
+        <select title="Text Alignment" class="ql-align">
+          <option value="left" label="Left" selected=""></option>
+          <option value="center" label="Center"></option>
+          <option value="right" label="Right"></option>
+          <option value="justify" label="Justify"></option>
+        </select>
+      </span>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,32 @@
+<template name="SignUpPanel">
+  <div class="sign-up-panel top-bar__panel">
+    <div class="row">
+      <form class="accounts__form small-centered medium-6 columns">
+        <div class="accounts__form--fields">
+          <input type="text" name="email" placeholder="Email" class='{{errorClass "email"}}' />
+          <input type="text" name="name" placeholder="Full name" class='{{errorClass "name"}}' />
+          <input type='text' name='username' placeholder='Username' class='{{errorClass "username"}}' />
+          <input type="password" name="password" placeholder="Password" class='{{errorClass "password"}}' />
+        </div>
+        <div class="help-block">
+          <ul class='{{errorClass "email"}} {{errorClass "username"}}
+            {{errorClass "name"}} {{errorClass "password"}} {{errorClass
+            "terms"}} {{errorClass "error"}}'>
+            <li class='{{errorClass "email"}}'>{{errorMessage 'email'}}</li>
+            <li class='{{errorClass "name"}}'>{{errorMessage 'name'}}</li>
+            <li class='{{errorClass "username"}}'>{{errorMessage 'username'}}</li>
+            <li class='{{errorClass "password"}}'>{{errorMessage 'password'}}</li>
+            <li class='{{errorClass "terms"}}'>{{errorMessage 'terms'}}</li>
+            <li class='{{errorClass "error"}}'>{{errorMessage 'error'}}</li>
+          </ul>
+        </div>
+        <input type="submit" value="Sign up" />
+        <p>
+          <input type="checkbox" checked="checked" />
+          I agree with the
+          <a href="{{pathFor 'TermsOfUse'}}" class="tou-a">terms of use</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,24 @@
+{
+  "servers": [
+    {
+      "host": "159.203.1.154",
+      "username": "root",
+      "pem": "~/.ssh/id_rsa"
+    }
+  ],
+
+  "setupMongo": true,
+
+  "appName": "pivotink",
+
+  "app": "~/Documents/websites/pivot_ink/app",
+
+  "env": {
+    "PORT": 80,
+    "ROOT_URL": "http://pivotink.com"
+  },
+
+  "deployCheckWaitTime": 15,
+
+  "enableUploadProgressBar": true
+}

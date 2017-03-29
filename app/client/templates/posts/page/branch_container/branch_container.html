@@ -1,0 +1,14 @@
+<template name='BranchContainer'>
+  <div id='{{branchContainerId}}' class='branch-container'>
+    {{#if textNode}}
+      {{> BranchMenu}}
+    {{/if}}
+
+    <div class='branches'>
+      <!-- create row of paragraphs -->
+      {{#each this}}
+        {{> BranchPost}}
+      {{/each}}
+    </div>
+  </div>
+</template>

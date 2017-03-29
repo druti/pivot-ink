@@ -1,0 +1,23 @@
+<template name='Drawer'>
+  <div class='drawer'> <!-- drawer open -->
+    <div class='main-menu-header'>
+      <a class='cta' href='{{pathFor "RootPostSubmit"}}'>Start writing</a>
+    </div>
+    <div class='categories-menu-header hdn sub-to-main-menu'>
+      <img src='/img/back-menu.svg' alt='back arrow' class='expand-main-menu' />
+      Categories
+    </div>
+    <div class='genres-menu-header hdn sub-to-main-menu'>
+      <img src='/img/back-menu.svg' alt='back arrow' class='expand-main-menu' />
+      Genres
+    </div>
+
+    {{> MainMenu}}
+
+    {{> CategoriesMenu}}
+
+    {{> GenresMenu}}
+
+    <div class='drawer-solid'></div>
+  </div> <!-- close drawer-->
+</template>

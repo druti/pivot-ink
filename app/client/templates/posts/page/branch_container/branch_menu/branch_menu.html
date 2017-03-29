@@ -1,0 +1,98 @@
+<template name='BranchMenu'>
+    <div class='branch-menu-container'>
+      <div class='callout'>
+        <div class='branch-menu'>
+          <div class='row branch-menu__main'>
+            <!--
+            <div class='small-3 columns'>
+              <div class='vote'>
+                <div class='vote__up'>
+                  <i class='fa fa-arrow-circle-o-up fa-2x'></i>
+                </div>
+
+                <div class='vote__count'>
+                  111
+                </div>
+
+                <div class='vote__down'>
+                  <i class='fa fa-arrow-circle-o-down fa-2x'></i>
+                </div>
+              </div>
+            </div>
+          -->
+
+            <div class='small-12 columns'>
+              <p class='text-center'>
+                Created by {{branchAuthor}} {{branchCreatedOn}} {{branchCountMessage}}
+              </p>
+            </div>
+            <!-- create menu open -->
+            <div class='branch-menu__create'>
+              <ul>
+                <!-- link to branchPostSubmit and pass parentId of branches in
+                container-->
+                <li><a href='{{pathFor "BranchPostSubmit" r_id=rootId
+                    p_id=pathId parent_id=parentId}}'>Branch</a></li>
+                <li><a class='c-rpm' href='#'>Replacement</a></li>
+              </ul>
+            </div>
+            <!-- create menu close -->
+            <!-- sec menu open -->
+            <div class='branch-menu__sec-menu'>
+              <ul>
+                <!--
+                <li class='side-nav-wrap'>
+                  <ul class='menu vertical'>
+                    {{#if ownsPost}}
+                      {{#if noDependents}}
+                      <li><a href='{{pathFor "PostEdit" r_id=rootId
+                      p_id=pathId g_id=groupId}}'>Edit</a></li>
+                      {{else}}
+                      <li><a href='#'>Link</a></li>
+                      {{/if}}
+                    {{else}}
+                    <li><a href='#'>Link</a></li>
+                    {{/if}}
+                  </ul>
+                </li>
+                -->
+                <li class='side-nav-wrap'>
+                  <ul class='menu vertical'>
+                    <li><a href='#'>Link</a></li>
+                  </ul>
+                </li>
+                <li class='side-nav-wrap'>
+                  <ul class='menu vertical'>
+                    <li><a href='#'>Link</a></li>
+                  </ul>
+                </li>
+                <li class='side-nav-wrap'>
+                  <ul class='menu vertical'>
+                    <li><a href='#'>Link</a></li>
+                  </ul>
+                </li>
+                <li class='side-nav-wrap'>
+                  <ul class='menu vertical'>
+                    <li><a href='#'>Link</a></li>
+                  </ul>
+                </li>
+                <div style='clear:both;'></div>
+              </ul>
+            </div>
+            <!-- sec menu close -->
+          </div>
+
+          <div class='row'>
+            <div class='branch-cta branch-cta--inactive small-6 columns'>
+              <a class='c-alt success expanded tiny button' href='{{pathFor "BranchPostSubmit" r_id=rootId p_id=pathId parent_id=parentId}}'>Branch</a>
+            </div>
+            <div class='sec-menu-b-w sec-menu-b-w--inactive small-6 columns'>
+              <a class='c-rpm sec-menu-b secondary expanded tiny button' href='#'>Replacement</a>
+            </div>
+          </div>
+        </div>
+        <button type='button' class='prev secondary'>&#8592;</button>
+        <button type='button' class='next secondary'>&#8594;</button>
+      </div>
+    </div>
+</template>

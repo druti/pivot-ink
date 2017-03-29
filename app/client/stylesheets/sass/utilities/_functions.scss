@@ -1,0 +1,46 @@
+// Import if Google Fonts URL is defined
+@if variable-exists(font-url--lato) {
+  @import url($font-url--lato);
+}
+@if variable-exists(font-url--raleway) {
+  @import url($font-url--raleway);
+}
+//======================================
+
+
+// Strip units from value
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+//=======================
+
+
+// Calculate em values
+@function em($target, $context: $base__font-size) {
+  @return ($target / $context) * 1em;
+}
+//====================
+
+// Calculate em values for fixed navigation
+@function em-nav($target, $context: $nav__font-size) {
+  @return ($target / $context) * 1em;
+}
+//====================
+
+//Call the color palette modifiers
+@function palette($palette, $shade: 'base') {
+  @return map-get($palette, $shade);
+}
+//================================
+
+
+// Grid Functions
+@function grid-column-width($n) {
+  @return $column-width * $n - ($column-margin*($total-columns - $n)/$total-columns);
+}
+
+@function grid-offset-length($n) {
+  @return grid-column-width($n) + $column-margin;
+}
+//===============
+

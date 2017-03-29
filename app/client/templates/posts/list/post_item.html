@@ -1,0 +1,12 @@
+<template name="PostItem">
+    <div class="post-item post">
+      <div class="medium-12 columns">
+        <div class="post-item__content post-content">
+          <h3><a href="{{pathFor 'PostPage' _id=_id}}">{{title}}</a></h3>
+          by <a href="#">{{author}}</a>
+          <span>{{{contentPreview}}}</span>
+          <a href="{{pathFor 'PostPage' _id=_id}}">{{commentCount}} comments</a>
+        </div>
+      </div>
+    </div>
+</template>

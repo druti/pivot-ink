@@ -1,0 +1,45 @@
+<template name="TopBar">
+  <div class="top-bar">
+    <nav>
+      <div class='roller'>
+        <a href="#" class="top-bar__menu top-bar__action">
+          Menu
+          <span class="expand-right">+</span>
+        </a>
+
+        {{#if currentUser}}
+          {{#if Template.subscriptionsReady}}
+            <a href="#" class="top-bar__user top-bar__action top-bar__opener">
+              {{currentUser.displayName}}
+              <span class="expand-right">+</span>
+            </a>
+            {{#if userOpen}}
+              {{> TopBarUserMenu}}
+            {{else}}
+              {{#if notificationCount}}
+                <a class='top-bar__notif-count' href='#'>
+                  {{notificationCount}}
+                </a>
+              {{/if}}
+            {{/if}}
+          {{else}}
+            <a href="#" class="top-bar__anchor">
+              Loading...
+            </a>
+          {{/if}}
+        {{else}}
+          <a href="#" class="top-bar__log-in top-bar__action"
+            data-panel-tmpl='LogInPanel'>
+            Log In
+            <span class="expand-down">+</span>
+          </a>
+          <a href="#" class="top-bar__sign-up top-bar__action"
+          data-panel-tmpl='SignUpPanel'>
+            Sign Up
+            <span class="expand-down">+</span>
+          </a>
+        {{/if}}
+      </div>
+    </nav>
+  </div>
+</template>

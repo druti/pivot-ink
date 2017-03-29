@@ -1,0 +1,17 @@
+<template name='TopBarUserMenu'>
+
+  <a href="#" class="top-bar__notifications top-bar__action"
+  data-panel-tmpl='NotificationsPanel'>
+    {{#if notificationCount}}
+      {{notificationCount}} Notifications
+    {{else}}
+      Notifications
+    {{/if}}
+    <span class="expand-down">+</span>
+  </a>
+
+  <a href="#" class="top-bar__log-out top-bar__anchor">
+    Log out
+  </a>
+
+</template>

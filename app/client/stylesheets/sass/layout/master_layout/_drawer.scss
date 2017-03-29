@@ -1,0 +1,130 @@
+
+.drawer {
+  ul, li {
+    margin: 0;
+  }
+
+  background-color: black;
+  border-right: 1px solid #fff;
+  display: none;
+  font-family: $font-family--layout;
+  height: 140%;
+  left: em-nav(-278px);
+  overflow: hidden;
+  position: fixed;
+  top: $top-bar-height;
+  width: em-nav(278px);
+  z-index: $drawer__z-index;
+
+  .main-menu, .sub-menu {
+    font-weight: 400;
+    height: 100%;
+    margin-top: em-nav(64px);
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+  }
+  .main-menu {
+    left: 0;
+    width: 100%;
+    word-wrap: initial;
+  }
+  .sub-menu {
+    opacity: 0;
+    left: 100%;
+    width: 100%;
+  }
+  .sub-to-main-menu {
+    color: $white;
+    padding: em-nav(19px) 0 em-nav(16px);
+    position: relative;
+    text-align: center;
+
+    .expand-main-menu {
+      display: block;
+      height: em-nav(32px);
+      left: em-nav(20px);
+      position: absolute;
+      top: em-nav(16px);
+    }
+  }
+
+  %menu-header {
+    height: em-nav(64px);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 700;
+  }
+  .main-menu-header, .categories-menu-header, .genres-menu-header {
+    @extend %menu-header;
+    font-weight: 600;
+  }
+  .main-menu-header {
+    padding: 0 em-nav(20px) 0;
+
+    .cta {
+      color: $white;
+      background-color: map-get($ui-colors, default);
+      display: block;
+      font-weight: normal;
+      height: em-nav(32px);
+      line-height: em-nav(32px);
+      margin-top: em-nav(16px);
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .menu-list {
+    position: absolute;
+    @extend .menu-list
+  }
+
+  .menu-item-expand {
+
+    width: em-nav(40px);
+    height: em-nav(60px);
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include p-el(after) {
+      border-top: em-nav(8px) solid transparent;
+      border-right: 0;
+      border-bottom: em-nav(8px) solid transparent;
+      border-left: em-nav(8px) solid white;
+      position: absolute;
+      top: 50%;
+      right: em-nav(24px);
+      margin-top: em-nav(-8px);
+    }
+  }
+}
+
+.menu-list {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+
+  li {
+    //border-bottom: 1px solid rgba(255,255,255,.07);
+
+    &:last-child {
+      border-bottom: none;
+    }
+    .menu__anchor--active {
+      color: map-get($ui-colors, success);
+    }
+  }
+
+  li a {
+    color: map-get($greyShades, x-light);
+    display: block;
+    padding: em-nav(18px) 0 em-nav(17px) em-nav(20px);
+    position: relative;
+  }
+}
